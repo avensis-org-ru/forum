@@ -1,0 +1,8 @@
+drwxr-xr-x    2 0        0            4096 Dec 11  2010 .
+drwxr-xr-x   13 0        0            4096 Dec 11  2010 ..
+-rw-r--r--    1 0        0            5807 Dec 11  2010 auth_apache.php
+-rw-r--r--    1 0        0            5586 Dec 11  2010 auth_apache.php.bak
+-rw-r--r--    1 0        0            6703 Dec 11  2010 auth_db.php
+-rw-r--r--    1 0        0            6386 Dec 11  2010 auth_db.php.bak
+-rw-r--r--    1 0        0            9415 Dec 11  2010 auth_ldap.php
+-rw-r--r--    1 0        0             169 Dec 11  2010 index.htm

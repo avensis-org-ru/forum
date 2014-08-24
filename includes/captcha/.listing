@@ -1,0 +1,5 @@
+drwxr-xr-x    2 0        0            4096 Dec 11  2010 .
+drwxr-xr-x   13 0        0            4096 Dec 11  2010 ..
+-rw-r--r--    1 0        0           72036 Dec 11  2010 captcha_gd.php
+-rw-r--r--    1 0        0           37788 Dec 11  2010 captcha_gd.php.bak
+-rw-r--r--    1 0        0           86254 Dec 11  2010 captcha_non_gd.php
