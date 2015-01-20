@@ -1,9 +1,0 @@
-drwxr-xr-x    2 0        0            4096 Dec 11  2010 .
-drwxr-xr-x    3 0        0            4096 Dec 11  2010 ..
--rw-r--r--    1 0        0             626 Dec 11  2010 ucp_attachments.php
--rw-r--r--    1 0        0             712 Dec 11  2010 ucp_groups.php
--rw-r--r--    1 0        0             896 Dec 11  2010 ucp_main.php
--rw-r--r--    1 0        0            1057 Dec 11  2010 ucp_pm.php
--rw-r--r--    1 0        0             774 Dec 11  2010 ucp_prefs.php
--rw-r--r--    1 0        0             927 Dec 11  2010 ucp_profile.php
--rw-r--r--    1 0        0             680 Dec 11  2010 ucp_zebra.php

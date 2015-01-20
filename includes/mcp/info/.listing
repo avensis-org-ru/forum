@@ -1,9 +1,0 @@
-drwxr-xr-x    2 0        0            4096 Dec 11  2010 .
-drwxr-xr-x    3 0        0            4096 Dec 11  2010 ..
--rw-r--r--    1 0        0             779 Dec 11  2010 mcp_ban.php
--rw-r--r--    1 0        0             819 Dec 11  2010 mcp_logs.php
--rw-r--r--    1 0        0             940 Dec 11  2010 mcp_main.php
--rw-r--r--    1 0        0             683 Dec 11  2010 mcp_notes.php
--rw-r--r--    1 0        0             909 Dec 11  2010 mcp_queue.php
--rw-r--r--    1 0        0             882 Dec 11  2010 mcp_reports.php
--rw-r--r--    1 0        0             928 Dec 11  2010 mcp_warn.php
