@@ -44,11 +44,11 @@ class Forum
   end
 
   def topic_indexes
-    ids = {} 
+    ids = [] 
     res = @db.query "select `topic_id` from `avensis_topics` where `forum_id` = #{@id};"
 
     res.each do |row|
-      ids << = row[0]
+      ids << row[0]
     end
 
      ids
@@ -81,17 +81,17 @@ class Topic
   end
 end
 
-$forums = Forums.new $db
+$sim = Simpozium.new $db
 
-$forums.list.each do |forum|
-  get "/forum/#{forum[0]}" do
+$sim.forum_indexes.each do |index|
+  get "/forum/#{index}" do
     res = ''
-    forum_desc = $forums.get forum[0]
+    forum_desc = $sim.forum index
 
-    res << forum_desc.name << '<br />'
+    res << "<h1>#{forum_desc.name}</h1>"
 
-    forum_desc.topics.each do |topic|
-      res << topic[0].to_s + '&nbsp;' + topic[1] + '<br />'
+    forum_desc.topic_indexes.each do |index|
+      res << "#{index.to_s}&nbsp;<a href=/topic/#{index.to_s}>#{forum_desc.topic(index).title}</a><br />"
     end
 
     res
@@ -101,8 +101,8 @@ end
 get '/forums' do
   res = ''
 
-  $forums.list.each do |forum|
-    res << forum[0] + '&nbsp;' + forum[1] + '<br />'
+  $sim.forum_indexes.each do |index|
+    res << "#{index}&nbsp;<a href=/forum/#{index}>#{$sim.forum(index).name}</a><br />"
   end
 
   res
