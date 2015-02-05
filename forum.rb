@@ -26,6 +26,10 @@ class Simpozium
   def forum id
     Forum.new @db, id
   end
+
+  def topic id
+    Topic.new @db, id
+  end
 end
 
 class Forum
@@ -75,9 +79,13 @@ class Topic
   end
 
   def text
-    res = @db.query "select `topic_text` from `avensis_topics` where `topic_id` = #{@id};"
+    res = @db.query "select `topic_first_post_id` from `avensis_topics` where `topic_id` = #{@id};"
 
-    return res.fetch_row[0]
+    first_post_id = res.fetch_row[0]
+
+    res = @db.query "select `post_text` from `avensis_posts` where `post_id` = #{first_post_id};"
+
+    res.fetch_row[0]
   end
 
   def post_indexes
@@ -114,19 +122,34 @@ end
 
 $sim = Simpozium.new $db
 
-$sim.forum_indexes.each do |index|
-  get "/forum/#{index}" do
-    res = ''
-    forum_desc = $sim.forum index
+get "/topic/*" do
+  id = params[:splat][0]
+  res = ''
+  topic = $sim.topic id
 
-    res << "<h1>#{forum_desc.name}</h1>"
+  res << "<h1>#{topic.title}</h1>"
 
-    forum_desc.topic_indexes.each do |index|
-      res << "#{index.to_s}&nbsp;<a href=/topic/#{index.to_s}>#{forum_desc.topic(index).title}</a><br />"
-    end
+  post_indexes = topic.post_indexes
 
-    res
+  post_indexes.each do |post_id|
+    res << "<p>#{topic.post(post_id).text}</p>"
   end
+
+  res
+end
+
+get "/forum/*" do
+  id = params[:splat][0]
+  res = ''
+  forum_desc = $sim.forum id
+
+  res << "<h1>#{forum_desc.name}</h1>"
+
+  forum_desc.topic_indexes.each do |index|
+    res << "#{index.to_s}&nbsp;<a href=/topic/#{index.to_s}>#{forum_desc.topic(index).title}</a><br />"
+  end
+
+  res
 end
 
 get '/forums' do
