@@ -51,7 +51,7 @@ class Forum
       ids << row[0]
     end
 
-     ids
+    ids
   end
 
   def topic id
@@ -76,6 +76,37 @@ class Topic
 
   def text
     res = @db.query "select `topic_text` from `avensis_topics` where `topic_id` = #{@id};"
+
+    return res.fetch_row[0]
+  end
+
+  def post_indexes
+    ids = [] 
+    res = @db.query "select `post_id` from `avensis_posts` where `topic_id` = #{@id};"
+
+    res.each do |row|
+      ids << row[0]
+    end
+
+    ids
+  end
+
+  def post id
+    Post.new @db, id
+  end
+end
+
+class Post
+  @db
+  @id
+
+  def initialize db, id
+    @db = db
+    @id = id
+  end
+
+  def text
+    res = @db.query "select `post_text` from `avensis_posts` where `post_id` = #{@id};"
 
     return res.fetch_row[0]
   end
